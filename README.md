@@ -1,18 +1,17 @@
-# eq-author-terraform-redis
+# eq-author-terraform-waf
 
-Terraform project that creates the redis infrastructure for EQ Author
+Terraform project that creates the WAF infrastructure for EQ Author
 
 To import this module add the following code into you Terraform project:
 
 ```
-module "author-redis" {
-  source              = "github.com/ONSdigital/eq-author-terraform-redis"
+module "author-waf" {
+  source              = "github.com/ONSdigital/eq-author-terraform-waf"
   env                 = "${var.env}-author"
   aws_account_id      = "${var.aws_account_id}"
   aws_assume_role_arn = "${var.aws_assume_role_arn}"
-  vpc_id              = "${module.author-vpc.vpc_id}"
-  application_cidrs   = "${var.author_application_cidrs}"
-  database_subnet_ids = "${module.author-vpc.database_subnet_ids}"
+  external_alb_arn   = "${var.external_alb_arn}"
+  metric_prefix       = "${var.metric_prefix"}
 }
 ```
 

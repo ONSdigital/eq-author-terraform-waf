@@ -10,16 +10,10 @@ variable "aws_assume_role_arn" {
   description = "IAM Role to assume on AWS"
 }
 
-variable "vpc_id" {
-  description = "VPC ID"
+variable "external_alb_arn" {
+  description = "External ALB that should be protected by the WAF"
 }
 
-variable "application_cidrs" {
-  type        = "list"
-  description = "CIDR blocks for application subnets"
-}
-
-variable "database_subnet_ids" {
-  type        = "list"
-  description = "Database subnet ids"
+variable "metric_prefix" {
+  description = "Prefix that gets applied to the WAF rule metric"
 }
