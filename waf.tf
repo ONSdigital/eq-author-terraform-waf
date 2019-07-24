@@ -1,5 +1,5 @@
 resource "aws_wafregional_web_acl" "web_acl" {
-  metric_name = "${var.env}WebAcl"
+  metric_name = "${var.metric_prefix}WebAcl"
   name = "${var.env}-web-acl"
 
   default_action {
